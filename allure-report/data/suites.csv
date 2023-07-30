@@ -1,0 +1,8 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Jul 30 05:22:08 GET 2023","Sun Jul 30 05:22:19 GET 2023","11591","Default Suite","restAssured-homework","AuthorizationTest","AuthorizationTest","bookStoreTest","bookStoreTest","Testing book store various functionalities"
+"failed","Sun Jul 30 05:22:06 GET 2023","Sun Jul 30 05:22:07 GET 2023","372","Default Suite","restAssured-homework","AuthorizationTest","AuthorizationTest","authorizeUserTest","authorizeUserTest",""
+"failed","Sun Jul 30 05:22:07 GET 2023","Sun Jul 30 05:22:08 GET 2023","250","Default Suite","restAssured-homework","AuthorizationTest","AuthorizationTest","authorizeUserTest","authorizeUserTest",""
+"failed","Sun Jul 30 05:22:07 GET 2023","Sun Jul 30 05:22:07 GET 2023","405","Default Suite","restAssured-homework","AuthorizationTest","AuthorizationTest","authorizeUserTest","authorizeUserTest",""
+"passed","Sun Jul 30 05:22:08 GET 2023","Sun Jul 30 05:22:08 GET 2023","308","Default Suite","restAssured-homework","AuthorizationTest","AuthorizationTest","authorizeUserTest","authorizeUserTest",""
+"failed","Sun Jul 30 05:22:05 GET 2023","Sun Jul 30 05:22:06 GET 2023","1424","Default Suite","restAssured-homework","AuthorizationTest","AuthorizationTest","authorizeUserTest","authorizeUserTest",""
+"failed","Sun Jul 30 05:22:07 GET 2023","Sun Jul 30 05:22:07 GET 2023","268","Default Suite","restAssured-homework","AuthorizationTest","AuthorizationTest","authorizeUserTest","authorizeUserTest",""
