@@ -17,7 +17,7 @@ public class ValidatingBookDataSteps {
         return this;
     }
 
-    @Step("Validating UI parameters with book data")
+    @Step("Log all data")
     public ValidatingBookDataSteps logAll() {
         response.then().log().all();
         return this;
