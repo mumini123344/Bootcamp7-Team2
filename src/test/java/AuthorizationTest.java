@@ -25,7 +25,7 @@ public class AuthorizationTest extends ConfigForTests {
     String correctUser;
     String correctPassword;
 
-    @Test(dataProvider = "authorizationData", dataProviderClass = AuthorizationData.class, priority = 0)
+    @Test(dataProvider = "authorizationData", dataProviderClass = AuthorizationData.class, priority = 1)
     public void authorizeUserTest(String userName, String password) throws JsonProcessingException {
         AuthorizationRequest authorizationRequest = new AuthorizationRequest();
         authorizationRequest.setUserName(userName);
@@ -40,7 +40,7 @@ public class AuthorizationTest extends ConfigForTests {
         }
     }
 
-    @Test(priority = 1)
+    @Test(priority = 2)
     @Description("Testing book store various functionalities")
     public void bookStoreTest() {
         open("/login");
