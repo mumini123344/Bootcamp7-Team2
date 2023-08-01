@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 import io.restassured.response.Response;
 import utils.ConfigForTests;
@@ -13,8 +14,8 @@ import static com.codeborne.selenide.Selenide.open;
 
 import static org.testng.Assert.assertEquals;
 
-@Epic("User Authorization")
-@Feature("Authorize User")
+@Epic("Final project")
+@Feature("Collection of different cases")
 public class AuthorizationTest extends ConfigForTests {
     AuthorizationStep authorizationStep = new AuthorizationStep();
     LoginSteps loginSteps = new LoginSteps();
@@ -22,10 +23,13 @@ public class AuthorizationTest extends ConfigForTests {
     BooksSteps booksSteps = new BooksSteps();
     BookDescriptionSteps bookDescriptionSteps = new BookDescriptionSteps();
     PopupSteps popupSteps = new PopupSteps();
+    ValidatingBookDataSteps validatingBookDataSteps = new ValidatingBookDataSteps();
     String correctUser;
     String correctPassword;
 
-    @Test(dataProvider = "authorizationData", dataProviderClass = AuthorizationData.class, priority = 1)
+    @Test(description = "Testing user account different scenarios", dataProvider = "authorizationData", dataProviderClass = AuthorizationData.class, priority = 1)
+    @Story("Testing user authorization")
+    @Description("Testing user authorization and fetching successful data")
     public void authorizeUserTest(String userName, String password) throws JsonProcessingException {
         AuthorizationRequest authorizationRequest = new AuthorizationRequest();
         authorizationRequest.setUserName(userName);
@@ -40,7 +44,8 @@ public class AuthorizationTest extends ConfigForTests {
         }
     }
 
-    @Test(priority = 2)
+    @Test(description = "Testing book deletion", priority = 2)
+    @Story("Testing demoqa.com/books website functionalities")
     @Description("Testing book store various functionalities")
     public void bookStoreTest() {
         open("/login");
@@ -67,7 +72,21 @@ public class AuthorizationTest extends ConfigForTests {
         userProfileSteps.validateBookCollectionSize()
                 .deleteLastBook();
         popupSteps.acceptDeleteBookPopup()
-                        .acceptPopup();
+                .acceptPopup();
         userProfileSteps.validateBookCollectionIsEmpty();
+    }
+
+    @Test(priority = 3)
+    @Description("Selecting first book and checking UI and data parameters are equal")
+    public void FirstBookTest() {
+        open("/books");
+        booksSteps.clickFirstBook()
+                .firstBookIsbn();
+
+        validatingBookDataSteps.getResp()
+                .logAll()
+                .validateIsbn()
+                .validateTitle()
+                .validateAuthor();
     }
 }
